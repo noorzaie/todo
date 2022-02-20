@@ -53,6 +53,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
             <Typography
               variant="h6"
               color="text.primary"
+              role="title"
             >
               {title}
             </Typography>
@@ -75,6 +76,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
           <Typography
             variant="body2"
             color="text.secondary"
+            role="description"
           >
             {description}
           </Typography>
@@ -86,6 +88,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
           <IconButton
             size="small"
             onClick={onDelete}
+            role="deleteButton"
           >
             <DeleteIcon
               color="error"
@@ -99,6 +102,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
             <IconButton
               size="small"
               onClick={onCancelEdit}
+              role="cancelEditButton"
             >
               <CloseIcon
                 color="error"
@@ -108,6 +112,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
             <IconButton
               size="small"
               onClick={handleEdit}
+              role="editButton"
             >
               <CheckIcon
                 color="success"
@@ -121,6 +126,7 @@ const ToDoItemComponent: React.FC<PropTypes> = (
           <IconButton
             size="small"
             onClick={onEnableEdit}
+            role="enableEditButton"
           >
             <EditIcon
               color="info"
