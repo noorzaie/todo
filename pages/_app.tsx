@@ -25,11 +25,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
 
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-
         <link rel="manifest" href="/manifest.json"/>
         <link
           href="/icons/favicon-16x16.png"
