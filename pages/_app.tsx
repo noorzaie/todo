@@ -1,16 +1,22 @@
-import Head from 'next/head'
-import { AppProps } from 'next/app'
+import Head from 'next/head';
+import { AppProps } from 'next/app';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import '../styles/globals.css'
-import theme from '../src/theme';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import '../styles/globals.css';
+import theme from '../layout/theme';
+import ToDoProvider from '../context/ToDoContext';
+import AppBarContainer from '../components/AppBar/AppBarContainer';
+import DialogContainer from '../components/Dialog/DialogContainer';
+
+const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta charSet="utf-8"/>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
 
         <title>To DO App</title>
 
@@ -24,12 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
 
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json"/>
         <link
           href="/icons/favicon-16x16.png"
           rel="icon"
@@ -43,12 +44,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#317EFB"/>
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ToDoProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <AppBarContainer/>
+            <DialogContainer/>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </ToDoProvider>
+      </QueryClientProvider>
     </>
-  )
+  );
 }
