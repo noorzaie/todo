@@ -4,4 +4,6 @@ This example uses [`next-pwa`](https://github.com/shadowwalker/next-pwa) to crea
 
 ## How to run
 
-Execute `npm run dev` and open `http://localhost:3000/`
+Execute `npm run dev` and open `http://localhost:3000/`.
+
+Execute `npm run test` to run tests.
